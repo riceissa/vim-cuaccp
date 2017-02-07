@@ -17,6 +17,10 @@ This plugin attempts to simplify accessing the clipboard in the spirit of
 itself is not suitable because it goes beyond mappings that deal with the
 clipboard.
 
+## Desiderata
+
+1. Clobber no more keybindings than `mswin.vim`.
+
 ## Installation
 
 The plugin works with the major plugin managers. For instance with
