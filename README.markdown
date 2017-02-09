@@ -20,6 +20,10 @@ clipboard.
 ## Desiderata
 
 1. Clobber no more keybindings than `mswin.vim`.
+2. Provide secure pasting
+3. Keep CUA keybindings
+4. If the user pastes when the cursor is between two quote marks, the pasted
+   text is inserted between the two quote marks
 
 ## Installation
 
