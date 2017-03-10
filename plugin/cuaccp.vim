@@ -56,7 +56,6 @@ if !exists("g:cuaccp_no_mappings") || !g:cuaccp_no_mappings
   cmap <C-V> <Plug>CuaccpCCV
   imap <C-V> <Plug>CuaccpICV
   vmap <C-V> <Plug>CuaccpVCV
-  " imap <C-G><C-V> <Plug>CuaccpICGCV
 endif
 
 vnoremap <silent> <script> <Plug>CuaccpVCX "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
