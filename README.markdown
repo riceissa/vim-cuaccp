@@ -9,7 +9,7 @@ cumbersome: in normal mode, actions involving the clipboard must be prefixed by
 `"+`. In insert mode, Vim provides several keybindings, but these all have
 problems: `<C-R>+` interprets control characters, so is unsafe; `<C-R><C-R>+`
 inserts linebreaks that don't exist in the original text; `<C-R><C-O>+` can
-paste outside of those quote marks when the cursor is between two quote marks;
+paste outside of quote marks when the cursor is between two quote marks;
 and `<C-R><C-P>+` again can paste outside of quote marks. Each of these is also
 cumbersome to type.
 
