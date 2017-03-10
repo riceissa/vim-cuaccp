@@ -1,3 +1,8 @@
+if exists("g:loaded_cuaccp")
+  finish
+endif
+let g:loaded_cuaccp = 1
+
 " This block follows three principles:
 "   (1) Any text editor that breaks CUA bindings for copy/cut/paste is broken.
 "   (2) Any text editor that introduces security problems from pasting text
