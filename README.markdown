@@ -16,7 +16,7 @@ cumbersome to type.
 This plugin attempts to simplify accessing the clipboard in the spirit of
 `mswin.vim`, which is included (but not loaded) in stock Vim. `mswin.vim`
 itself is not suitable because it goes beyond mappings that deal with the
-clipboard.
+clipboard, and also has problems with its own pasting.
 
 ## Desiderata
 
