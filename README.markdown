@@ -46,7 +46,7 @@ following:
 -   Pasting with linebreaks. (TODO replace the dummy implementation.)
     This mapping is not enabled by default.
 
-        imap <C-G><C-V> <Plug>CuaccpICGCV
+        imap <C-G><C-V> <Plug>CuaccpIHardwrapPaste
 
 ## Installation
 
