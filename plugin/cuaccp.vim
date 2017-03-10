@@ -49,13 +49,15 @@ function! s:MakeCharacterwise(reg)
   call setreg(a:reg, reg_cont, 'c')
 endfunction
 
-vmap <C-X> <Plug>CuaccpVCX
-vmap <C-C> <Plug>CuaccpVCC
-nmap <C-V> <Plug>CuaccpNCV
-cmap <C-V> <Plug>CuaccpCCV
-imap <C-V> <Plug>CuaccpICV
-vmap <C-V> <Plug>CuaccpVCV
-imap <C-G><C-V> <Plug>CuaccpICGCV
+if !exists("g:cuaccp_no_mappings") || !g:cuaccp_no_mappings
+  vmap <C-X> <Plug>CuaccpVCX
+  vmap <C-C> <Plug>CuaccpVCC
+  nmap <C-V> <Plug>CuaccpNCV
+  cmap <C-V> <Plug>CuaccpCCV
+  imap <C-V> <Plug>CuaccpICV
+  vmap <C-V> <Plug>CuaccpVCV
+  imap <C-G><C-V> <Plug>CuaccpICGCV
+endif
 
 vnoremap <silent> <script> <Plug>CuaccpVCX "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
 vnoremap <silent> <script> <Plug>CuaccpVCC "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
