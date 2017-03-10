@@ -21,10 +21,13 @@ clipboard, and also has problems with its own pasting.
 ## Desiderata
 
 1. Clobber no more keybindings than `mswin.vim`.
-2. Provide secure pasting
+2. Provide secure pasting, i.e. ASCII control sequences should not be
+   interpreted
 3. Keep CUA keybindings
 4. If the user pastes when the cursor is between two quote marks, the pasted
    text is inserted between the two quote marks
+
+I think these desiderata are pretty "commonsense": gedit follows all of them.
 
 ## Installation
 
