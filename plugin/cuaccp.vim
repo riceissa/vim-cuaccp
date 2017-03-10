@@ -50,19 +50,19 @@ function! s:MakeCharacterwise(reg)
 endfunction
 
 if !exists("g:cuaccp_no_mappings") || !g:cuaccp_no_mappings
-  vmap <C-X> <Plug>CuaccpVCX
-  vmap <C-C> <Plug>CuaccpVCC
-  nmap <C-V> <Plug>CuaccpNCV
-  cmap <C-V> <Plug>CuaccpCCV
-  imap <C-V> <Plug>CuaccpICV
-  vmap <C-V> <Plug>CuaccpVCV
+  vmap <C-X> <Plug>CuaccpVCut
+  vmap <C-C> <Plug>CuaccpVCopy
+  nmap <C-V> <Plug>CuaccpNPaste
+  cmap <C-V> <Plug>CuaccpCPaste
+  imap <C-V> <Plug>CuaccpIPaste
+  vmap <C-V> <Plug>CuaccpVPaste
 endif
 
-vnoremap <silent> <script> <Plug>CuaccpVCX "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
-vnoremap <silent> <script> <Plug>CuaccpVCC "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVCut "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVCopy "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
 
-nnoremap <silent> <script> <Plug>CuaccpNCV :<C-U>call <SID>MakeCharacterwise('+')<CR>"+gP
-cnoremap <script> <Plug>CuaccpCCV <C-R><C-R>+
-inoremap <silent> <script> <Plug>CuaccpICV <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-O>+
-vnoremap <silent> <script> <Plug>CuaccpVCV "-y:<C-U>call <SID>MakeCharacterwise('+')<CR>gv"+gp
-inoremap <silent> <script> <Plug>CuaccpICGCV <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-R>+
+nnoremap <silent> <script> <Plug>CuaccpNPaste :<C-U>call <SID>MakeCharacterwise('+')<CR>"+gP
+cnoremap <script> <Plug>CuaccpCPaste <C-R><C-R>+
+inoremap <silent> <script> <Plug>CuaccpIPaste <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-O>+
+vnoremap <silent> <script> <Plug>CuaccpVPaste "-y:<C-U>call <SID>MakeCharacterwise('+')<CR>gv"+gp
+inoremap <silent> <script> <Plug>CuaccpIHardwrapPaste <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-R>+
