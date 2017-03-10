@@ -49,11 +49,19 @@ function! s:MakeCharacterwise(reg)
   call setreg(a:reg, reg_cont, 'c')
 endfunction
 
-vnoremap <silent> <C-X> "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
-vnoremap <silent> <C-C> "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
+vmap <C-X> <Plug>CuaccpVCX
+vmap <C-C> <Plug>CuaccpVCC
+nmap <C-V> <Plug>CuaccpNCV
+cmap <C-V> <Plug>CuaccpCCV
+imap <C-V> <Plug>CuaccpICV
+vmap <C-V> <Plug>CuaccpVCV
+imap <C-G><C-V> <Plug>CuaccpICGCV
 
-nnoremap <silent> <C-V> :<C-U>call <SID>MakeCharacterwise('+')<CR>"+gP
-cnoremap <C-V> <C-R><C-R>+
-inoremap <silent> <C-V> <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-O>+
-vnoremap <silent> <C-V> "-y:<C-U>call <SID>MakeCharacterwise('+')<CR>gv"+gp
-inoremap <silent> <C-G><C-V> <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-R>+
+vnoremap <silent> <script> <Plug>CuaccpVCX "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVCC "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
+
+nnoremap <silent> <script> <Plug>CuaccpNCV :<C-U>call <SID>MakeCharacterwise('+')<CR>"+gP
+cnoremap <script> <Plug>CuaccpCCV <C-R><C-R>+
+inoremap <silent> <script> <Plug>CuaccpICV <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-O>+
+vnoremap <silent> <script> <Plug>CuaccpVCV "-y:<C-U>call <SID>MakeCharacterwise('+')<CR>gv"+gp
+inoremap <silent> <script> <Plug>CuaccpICGCV <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-R>+
