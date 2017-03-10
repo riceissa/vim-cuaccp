@@ -29,6 +29,25 @@ clipboard, and also has problems with its own pasting.
 
 I think these desiderata are pretty "commonsense": gedit follows all of them.
 
+## Features
+
+In addition to following the desiderata listed above, this plugin offers the
+following:
+
+-   Stripping of preceding and trailing newlines. If text is copied in Vim
+    using visual line mode and standard mappings (e.g. `V"+y`), a trailing
+    newline is included in the clipboard. I find that I rarely want this, so
+    this plugin strips these newlines. If you want to disable this, set TODO
+
+-   Selective mappings. All mappings are provided using `<Plug>` mappings. Set
+    `g:cuaccp_no_mappings` if you want to disable the provided mappings so you
+    can map them on your own.
+
+-   Pasting with linebreaks. (TODO replace the dummy implementation.)
+    This mapping is not enabled by default.
+
+        imap <C-G><C-V> <Plug>CuaccpICGCV
+
 ## Installation
 
 The plugin works with the major plugin managers. For instance with
