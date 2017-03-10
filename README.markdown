@@ -7,10 +7,11 @@
 The default keybindings Vim provides for copying and pasting are quite
 cumbersome: in normal mode, actions involving the clipboard must be prefixed by
 `"+`. In insert mode, Vim provides several keybindings, but these all have
-problems: `<C-R>+` (interprets control characters, so unsafe), `<C-R><C-R>+`
-(inserts linebreaks), `<C-R><C-O>+` (when the cursor is between two quote
-marks, can paste outside of those quote marks), `<C-R><C-P>+` (again, this can
-paste outside of quote marks); each of these is also cumbersome to type.
+problems: `<C-R>+` interprets control characters, so is unsafe; `<C-R><C-R>+`
+inserts linebreaks that don't exist in the original text; `<C-R><C-O>+` can
+paste outside of those quote marks when the cursor is between two quote marks;
+and `<C-R><C-P>+` again can paste outside of quote marks. Each of these is also
+cumbersome to type.
 
 This plugin attempts to simplify accessing the clipboard in the spirit of
 `mswin.vim`, which is included (but not loaded) in stock Vim. `mswin.vim`
