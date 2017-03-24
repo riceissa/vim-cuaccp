@@ -25,25 +25,29 @@ function! s:MakeCharacterwise(reg)
   if has('nvim') || v:version > 704 || (v:version == 704 && has("patch513"))
     let reg_cont = getreg(a:reg, 1, 1)
 
-    " Remove empty lines at the beginning and end of the register
-    while (!empty(reg_cont)) && (reg_cont[-1] ==# '')
-      call remove(reg_cont, -1)
-    endwhile
-    while (!empty(reg_cont)) && (reg_cont[0] ==# '')
-      call remove(reg_cont, 0)
-    endwhile
+    if !exists('g:cuaccp_no_strip_newlines') || !g:cuaccp_no_strip_newlines
+      " Remove empty lines at the beginning and end of the register
+      while (!empty(reg_cont)) && (reg_cont[-1] ==# '')
+        call remove(reg_cont, -1)
+      endwhile
+      while (!empty(reg_cont)) && (reg_cont[0] ==# '')
+        call remove(reg_cont, 0)
+      endwhile
+    endif
   else
     let reg_cont = getreg(a:reg)
 
-    " Same idea as above; remove empty lines from the beginning and end.
-    " Note that because the result of calling getreg() is not a list in this
-    " case, any NULLs will be converted to newlines.
-    while char2nr(strpart(reg_cont, len(reg_cont)-1)) == 10
-      let reg_cont = strpart(reg_cont, 0, len(reg_cont)-1)
-    endwhile
-    while char2nr(strpart(reg_cont, 0, 1)) == 10
-      let reg_cont = strpart(reg_cont, 1)
-    endwhile
+    if !exists('g:cuaccp_no_strip_newlines') || !g:cuaccp_no_strip_newlines
+      " Same idea as above; remove empty lines from the beginning and end.
+      " Note that because the result of calling getreg() is not a list in this
+      " case, any NULLs will be converted to newlines.
+      while char2nr(strpart(reg_cont, len(reg_cont)-1)) == 10
+        let reg_cont = strpart(reg_cont, 0, len(reg_cont)-1)
+      endwhile
+      while char2nr(strpart(reg_cont, 0, 1)) == 10
+        let reg_cont = strpart(reg_cont, 1)
+      endwhile
+    endif
   endif
 
   call setreg(a:reg, reg_cont, 'c')
