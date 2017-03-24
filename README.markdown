@@ -47,6 +47,8 @@ following:
 
 -   Pasting with linebreaks.
     This mapping is not enabled by default.
+    You can enable it by adding a mapping for `<Plug>CuaccpIHardwrapPaste`; for
+    example:
 
         imap <C-G><C-V> <Plug>CuaccpIHardwrapPaste
 
