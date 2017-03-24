@@ -37,11 +37,13 @@ following:
 -   Stripping of preceding and trailing newlines. If text is copied in Vim
     using visual line mode and standard mappings (e.g. `V"+y`), a trailing
     newline is included in the clipboard. I find that I rarely want this, so
-    this plugin strips these newlines. If you want to disable this, set TODO
+    this plugin strips these newlines, both when copying out of Vim and when
+    pasting into Vim. If you want to disable this, add
+    `let g:cuaccp_no_strip_newlines = 1` to your vimrc.
 
--   Selective mappings. All mappings are provided using `<Plug>` mappings. Set
-    `g:cuaccp_no_mappings` if you want to disable the provided mappings so you
-    can map them on your own.
+-   Selective mappings. All mappings are provided using `<Plug>` mappings. If
+    you want to disable the provided mappings so you can map them on your own,
+    just add `let g:cuaccp_no_mappings = 1` to your vimrc.
 
 -   Pasting with linebreaks.
     This mapping is not enabled by default.
