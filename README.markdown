@@ -43,7 +43,7 @@ following:
     `g:cuaccp_no_mappings` if you want to disable the provided mappings so you
     can map them on your own.
 
--   Pasting with linebreaks. (TODO replace the dummy implementation.)
+-   Pasting with linebreaks.
     This mapping is not enabled by default.
 
         imap <C-G><C-V> <Plug>CuaccpIHardwrapPaste
