@@ -50,10 +50,15 @@ following:
 
 ## Installation
 
-The plugin works with the major plugin managers. For instance with
-[vim-plug][plug] just place in your `.vimrc`:
+The plugin works with the major plugin and runtime path managers. For instance
+with [vim-plug][plug] just place in your `.vimrc`:
 
     Plug 'riceissa/vim-cuaccp'
+
+With pathogen.vim:
+
+    cd ~/.vim/bundle && \
+    git clone https://github.com/riceissa/vim-cuaccp.git
 
 ## License
 
