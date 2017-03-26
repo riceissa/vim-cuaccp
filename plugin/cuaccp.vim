@@ -41,10 +41,10 @@ function! s:MakeCharacterwise(reg)
       " Same idea as above; remove empty lines from the beginning and end.
       " Note that because the result of calling getreg() is not a list in this
       " case, any NULLs will be converted to newlines.
-      while char2nr(strpart(reg_cont, len(reg_cont)-1)) == char2nr("\<NL>")
+      while strpart(reg_cont, len(reg_cont)-1) == "\<NL>"
         let reg_cont = strpart(reg_cont, 0, len(reg_cont)-1)
       endwhile
-      while char2nr(strpart(reg_cont, 0, 1)) == char2nr("\<NL>")
+      while strpart(reg_cont, 0, 1) == "\<NL>"
         let reg_cont = strpart(reg_cont, 1)
       endwhile
     endif
