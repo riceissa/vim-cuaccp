@@ -34,7 +34,7 @@ I think these desiderata are pretty "commonsense": gedit follows all of them.
 In addition to following the desiderata listed above, this plugin offers the
 following:
 
--   Stripping of preceding and trailing newlines. If text is copied in Vim
+-   Stripping of leading and trailing newlines. If text is copied in Vim
     using visual line mode and standard mappings (e.g. `V"+y`), a trailing
     newline is included in the clipboard. I find that I rarely want this, so
     this plugin strips these newlines, both when copying out of Vim and when
