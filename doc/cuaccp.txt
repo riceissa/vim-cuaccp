@@ -29,12 +29,12 @@ SETTINGS                                     *cuaccp-settings*
 By default, this plugin strips leading and trailing newlines when copying or
 pasting.  This can be disabled with:
 >
-        g:cuaccp_no_strip_newlines
+        let g:cuaccp_no_strip_newlines = 1
 
 By default, mappings for CTRL-C, CTRL-X, and CTRL-V are enabled.  To prevent
 this (so that mappings can be defined manually), do:
 >
-        g:cuaccp_no_mappings
+        let g:cuaccp_no_mappings = 1
 
 
  vim:tw=78:et:ts=8:ft=help:norl:
