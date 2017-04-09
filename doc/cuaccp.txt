@@ -1,0 +1,40 @@
+*cuaccp.txt* Common User Access cut, copy, and paste
+
+MAPPINGS                                        *cuaccp-mappings*
+
+                                                *cuaccp-CTRL-C*
+CTRL-C                  Copy (yank) the visual selection into the clipboard
+                        (|quoteplus|).
+
+                                                *cuaccp-CTRL-X*
+CTRL-X                  Cut the visual selection into the clipboard
+                        (|quoteplus|).
+
+                                                *cuaccp-CTRL-V*
+CTRL-V                  Paste the contents of the clipboard (|quoteplus|).
+                        There are mappings for normal mode, insert mode,
+                        visual mode, and command-line mode.  The contents of
+                        the clipboard are never interpreted when pasting.
+
+                                                *cuaccp-CuaccpIHardwrapPaste*
+CuaccpIHardwrapPaste    Like CTRL-V, but follow options like 'textwidth' and
+                        'formatoptions'.  In other words, the pasting is done
+                        as with |i_CTRL-R_CTRL-R|.  There is no default
+                        mapping for this, so create one to use it.  Example:
+>
+                        imap <C-G><C-V> <Plug>CuaccpIHardwrapPaste
+
+SETTINGS                                     *cuaccp-settings*
+
+By default, this plugin strips leading and trailing newlines when copying or
+pasting.  This can be disabled with:
+>
+        g:cuaccp_no_strip_newlines
+
+By default, mappings for CTRL-C, CTRL-X, and CTRL-V are enabled.  To prevent
+this (so that mappings can be defined manually), do:
+>
+        g:cuaccp_no_mappings
+
+
+ vim:tw=78:et:ts=8:ft=help:norl:
