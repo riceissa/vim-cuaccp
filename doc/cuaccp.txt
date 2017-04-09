@@ -1,5 +1,10 @@
 *cuaccp.txt* Common User Access cut, copy, and paste
 
+INTRODUCTION                                    *cuaccp*
+
+This plugin provides Common User Access (CUA) mappings for cut, copy, and
+paste.  It is in the spirit of |mswin.vim| but clobbers fewer keybindings.
+
 MAPPINGS                                        *cuaccp-mappings*
 
                                                 *cuaccp-CTRL-C*
