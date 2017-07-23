@@ -13,7 +13,7 @@ endif
 " pasting from a different application that doesn't have any conception of
 " linewise or blockwise registers, so unconditional characterwise pasting is
 " more intuitive.
-function! s:MakeCharacterwise(reg)
+function! s:characterize_register(reg)
   " In older versions of Vim, the call to setreg() at the end on the list
   " reg_cont crashes Vim with 'Caught deadly signal ABRT'. Git bisect
   " reveals that this is fixed with Vim 7.4 patch 513, 'Crash because
@@ -53,6 +53,17 @@ function! s:MakeCharacterwise(reg)
   call setreg(a:reg, reg_cont, 'c')
 endfunction
 
+function! s:paste(reg)
+  call <SID>characterize_register(a:reg)
+  if col('.') >= col('$')
+    norm! "+gp
+    return "\<Right>"
+  else
+    norm! "+gP
+    return ""
+  endif
+endfunction
+
 if !exists("g:cuaccp_no_mappings") || !g:cuaccp_no_mappings
   vmap <C-X> <Plug>CuaccpVCut
   vmap <C-C> <Plug>CuaccpVCopy
@@ -62,11 +73,11 @@ if !exists("g:cuaccp_no_mappings") || !g:cuaccp_no_mappings
   vmap <C-V> <Plug>CuaccpVPaste
 endif
 
-vnoremap <silent> <script> <Plug>CuaccpVCut "+x:<C-U>call <SID>MakeCharacterwise('+')<CR>
-vnoremap <silent> <script> <Plug>CuaccpVCopy "+y:<C-U>call <SID>MakeCharacterwise('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVCut "+x:<C-U>call <SID>characterize_register('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVCopy "+y:<C-U>call <SID>characterize_register('+')<CR>
 
-nnoremap <silent> <script> <Plug>CuaccpNPaste :<C-U>call <SID>MakeCharacterwise('+')<CR>"+gP
+nnoremap <silent> <script> <Plug>CuaccpNPaste :<C-U>call <SID>characterize_register('+')<CR>"+gP
 cnoremap <script> <Plug>CuaccpCPaste <C-R><C-R>+
-inoremap <silent> <script> <Plug>CuaccpIPaste <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-O>+
-vnoremap <silent> <script> <Plug>CuaccpVPaste "-y:<C-U>call <SID>MakeCharacterwise('+')<CR>gv"+gp
-inoremap <silent> <script> <Plug>CuaccpIHardwrapPaste <C-G>u<C-\><C-O>:<C-U>call <SID>MakeCharacterwise('+')<CR><C-R><C-R>+
+inoremap <silent> <Plug>CuaccpIPaste <C-G>u<C-R>=<SID>paste('+')<CR>
+vnoremap <silent> <script> <Plug>CuaccpVPaste "-y:<C-U>call <SID>characterize_register('+')<CR>gv"+gp
+inoremap <silent> <script> <Plug>CuaccpIHardwrapPaste <C-G>u<C-\><C-O>:<C-U>call <SID>characterize_register('+')<CR><C-R><C-R>+
