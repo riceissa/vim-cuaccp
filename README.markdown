@@ -1,5 +1,8 @@
 # Common User Access cut, copy, and paste for Vim
 
+**NOTE: This plugin has been superseded by [vim-pasteurize](https://github.com/riceissa/vim-pasteurize).
+It is no longer maintained.**
+
 `cuaccp.vim` provides CUA-style cut, copy, and paste in Vim.
 
 ## Rationale
